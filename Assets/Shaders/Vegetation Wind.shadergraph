@@ -2536,7 +2536,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "c5e189e358394c809963f35ad895f83b",
     "m_Id": 0,
-    "m_DisplayName": "WindStrenght",
+    "m_DisplayName": "WindScale",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
