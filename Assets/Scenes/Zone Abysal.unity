@@ -6736,7 +6736,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 174
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -8765,10 +8765,10 @@ SceneRoots:
   - {fileID: 1528069710}
   - {fileID: 1358232574}
   - {fileID: 1837985205}
+  - {fileID: 293021824}
+  - {fileID: 1252978483}
   - {fileID: 1502402293}
   - {fileID: 2025160293091763315}
   - {fileID: 713985103}
   - {fileID: 1509606549}
   - {fileID: 714908186}
-  - {fileID: 293021824}
-  - {fileID: 1252978483}
