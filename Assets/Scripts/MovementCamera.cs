@@ -9,11 +9,11 @@ public class MovementCamera : MonoBehaviour
 
     void Start()
     {
-        transform.DOMoveX(2f, 8f)
+        transform.DOMoveX(2f, 16f)
              .SetLoops(-1, LoopType.Yoyo)
              .SetEase(Ease.InOutSine);
 
-        transform.DOMoveY(8f, 8f)
+        transform.DOMoveY(12.1f, 8f)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutSine);
 
