@@ -97,6 +97,9 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _AmplitudeX: 0.0674
+    - _AmplitudeY: 0.0552
+    - _AmplitudeZ: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -109,9 +112,13 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _FrequencyX: 3.62
+    - _FrequencyY: 2.39
+    - _FrequencyZ: 0.82
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HeadLimit: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -120,6 +127,9 @@ Material:
     - _Smoothness: 0.033
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpeedX: 0
+    - _SpeedY: 5.12
+    - _SpeedZ: 5.33
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
