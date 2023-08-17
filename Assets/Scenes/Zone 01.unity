@@ -523,6 +523,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 94454863}
+  X: -2.95
+  Y: 11.84
+  Xtime: 0
+  Ytime: 0
 --- !u!1 &125221800
 GameObject:
   m_ObjectHideFlags: 0
@@ -22844,6 +22848,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 728418778}
+  X: 0
+  Y: 0
+  Xtime: 0
+  Ytime: 0
 --- !u!114 &728418774
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,16 +4,18 @@ Shader "Custom/FishAnimation" {
 		_SpeedX("SpeedX", Range(0, 10)) = 1
 		_FrequencyX("FrequencyX", Range(0, 10)) = 1
 		_AmplitudeX("AmplitudeX", Range(0, 0.2)) = 1
-		_SpeedY("SpeedY", Range(0, 10)) = 1
+		_SpeedY("SpeedY", Range(0, 20)) = 1
 		_FrequencyY("FrequencyY", Range(0, 10)) = 1
-		_AmplitudeY("AmplitudeY", Range(0, 0.2)) = 1
+		_AmplitudeY("AmplitudeY", Range(0, 2)) = 1
 		_SpeedZ("SpeedZ", Range(0, 10)) = 1
 		_FrequencyZ("FrequencyZ", Range(0, 10)) = 1
 		_AmplitudeZ("AmplitudeZ", Range(0,  2)) = 1
 		_HeadLimit("HeadLimit", Range(-2,  2)) = 0.05
+		
 	}
 		SubShader{
-		Tags{ "RenderType" = "Opaque" }
+		Tags{ "RenderType" = "ReciveLight" }
+		
 		Cull off
 
 		Pass{
@@ -80,6 +82,8 @@ Shader "Custom/FishAnimation" {
 		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 		return o;
+
+		
 		
 	}
 
