@@ -1936,8 +1936,10 @@ MonoBehaviour:
   Camera: {fileID: 391734655}
   X: 6
   Y: 18
+  Z: -31.4
   Xtime: 12
   Ytime: 12
+  Ztime: 0
 --- !u!4 &405704412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 940d55d4117386f4f9398ea3ff52d4cd,
