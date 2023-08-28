@@ -101,7 +101,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Amplitude: 1.09
+    - _Amplitude: 1.05
     - _AmplitudeX: 0.171
     - _AmplitudeY: 2
     - _AmplitudeZ: 0.05
@@ -118,7 +118,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Frequence: 0.05
+    - _Frequence: 0.02
     - _FrequencyX: 2.36
     - _FrequencyY: 0.13
     - _FrequencyZ: 0.25
@@ -137,7 +137,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 4
+    - _Speed: 2.06
     - _SpeedX: 1
     - _SpeedY: 20
     - _SpeedZ: 0.9

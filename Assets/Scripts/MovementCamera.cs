@@ -15,19 +15,10 @@ public class MovementCamera : MonoBehaviour
 
     void Start()
     {
-        transform.DOMoveX(X, Xtime)
-             .SetLoops(-1, LoopType.Yoyo)
-             .SetEase(Ease.InOutSine);
+        transform.DOMoveX(X, Xtime).SetEase(Ease.InOutSine);
 
-        transform.DOMoveY(Y, Ytime)
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.InOutSine);
+        transform.DOMoveY(Y, Ytime).SetEase(Ease.InOutSine);
 
-        transform.DOMoveZ(Z, Ztime)
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.InOutSine);
-
+        transform.DOMoveZ(Z, Ztime).SetEase(Ease.InOutSine);
     }
-
-
 }
