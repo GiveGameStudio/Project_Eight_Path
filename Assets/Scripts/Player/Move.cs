@@ -11,7 +11,7 @@ public class Move : MonoSingleton<Move>
     public float speed;
     public float impulseCD;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Vector2 dir;
     private float actualCD;
     
