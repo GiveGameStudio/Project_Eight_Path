@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
+    public MapDisplay display;
     public int mapWidth;
     public int mapHeight;
     [Range(1, 50)]
@@ -40,13 +41,23 @@ public class WorldGenerator : MonoBehaviour
 
     public bool autoUpdate;
 
-    public void GenerateMap()
+    private void Start()
+    {
+        display.gameObject.SetActive(false);
+    }
+
+    public float[,] GenerateMap()
     {
         float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, seed, noiseScale, octaves, persistance, lacunarity, threshold, offset, addOcean, oceanStep, addGround, groundStep);
 
-
-        MapDisplay display = FindFirstObjectByType<MapDisplay>();
         display.DrawNoiseMap(noiseMap);
+        return noiseMap;
+    }
+
+    public float GenerateRandomAtPosition(Vector2 position)
+    {
+        float value = Noise.GenerateNoiseAtLocation(new Vector2Int(mapWidth, mapHeight), position, seed, noiseScale, octaves, persistance, lacunarity, threshold, offset, addOcean, oceanStep, addGround, groundStep);
+        return value;
     }
 
     void OnValidate()
