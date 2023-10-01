@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BaseTemplate.Behaviours;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,13 +13,22 @@ public class ColorSneak : MonoSingleton<ColorSneak>
 
     public SpriteRenderer visual;
 
+    public List<LineRenderer> _tentacules;
+
     private void Start()
     {
         visual = transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        
+        foreach (GameObject Go in GameObject.FindGameObjectsWithTag("Tentacule"))
+        {
+            _tentacules.Add(Go.GetComponent<LineRenderer>());
+        }
+        
     }
 
     public void PickColor(InputAction.CallbackContext context)
     {
+        Debug.Log("Click");
         GetColorFromRaycast();
     }
     
@@ -31,8 +41,15 @@ public class ColorSneak : MonoSingleton<ColorSneak>
             SpriteRenderer renderer = hit.collider.GetComponent<SpriteRenderer>();
             if (renderer != null)
             {
+                Debug.Log("loop");
                 Color ambientColor = renderer.color;
                 visual.color = ambientColor;
+                
+                foreach (LineRenderer Lr in _tentacules)
+                {
+                    Lr.startColor = ambientColor;
+                    Lr.endColor = ambientColor;
+                }
             }
         }
     }
