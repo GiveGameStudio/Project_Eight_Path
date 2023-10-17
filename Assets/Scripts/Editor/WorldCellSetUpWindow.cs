@@ -11,9 +11,9 @@ public class WorldCellSetUpWindow : EditorWindow
 {
     WorldCell selectedCell = null;
     bool[] config = new bool[25];
-    int cellsubSize = 2;
+    //int cellsubSize = 2;
 
-    [MenuItem("Procedural/CellEditor")]
+
     public static void ShowWindow()
     {
         var window = GetWindow<WorldCellSetUpWindow>();

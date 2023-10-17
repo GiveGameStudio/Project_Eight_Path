@@ -104,68 +104,67 @@ public static class Noise
     }
 
 
-    public static float GenerateNoiseAtLocation(Vector2Int gridSize, Vector2 position, int seed, float scale, int octaves, float persistance, float lacunarity, float threshold, Vector2 offset,
-        bool addOcean, float oceanStep, bool addGround, float groundStep)
+    public static float GenerateNoiseAtLocation(WorldProperties prop, int x, int y)
     {
         float value = 0;
 
         //Calcul right offset
         {
-            offset.x = (position.x) * (1 / scale);
-            position.x = gridSize.x / 2;
+            prop.offset.x = (x) * (1 / prop.noiseScale);
+            x = prop.mapWidth / 2;
         }
 
-        System.Random prng = new System.Random(seed);
-        Vector2[] octaveOffsets = new Vector2[octaves];
-        for (int i = 0; i < octaves; i++)
+        System.Random prng = new System.Random(prop.seed);
+        Vector2[] octaveOffsets = new Vector2[prop.octaves];
+        for (int i = 0; i < prop.octaves; i++)
         {      
-            float offsetX = prng.Next(-100000, 100000) + offset.x;
-            float offsetY = prng.Next(-100000, 100000) + offset.y;
+            float offsetX = prng.Next(-100000, 100000) + prop.offset.x;
+            float offsetY = prng.Next(-100000, 100000) + prop.offset.y;
             octaveOffsets[i] = new Vector2(offsetX, offsetY);
         }
 
-        if (scale <= 0)
+        if (prop.noiseScale <= 0)
         {
-            scale = 0.0001f;
+            prop.noiseScale = 0.0001f;
         }
 
-        float halfWidth = gridSize.x / 2f;
-        float halfHeight = gridSize.y / 2f;
+        float halfWidth = prop.mapWidth / 2f;
+        float halfHeight = prop.mapHeight / 2f;
 
-        float oceanValue = 1 - ((gridSize.y - (position.y + 1)) * oceanStep);
+        float oceanValue = 1 - ((prop.mapHeight - (y + 1)) * prop.oceanStep);
         oceanValue = Mathf.Clamp01(oceanValue);
 
-        float groundValue = (1 - (position.y * groundStep));
+        float groundValue = (1 - (y * prop.groundStep));
         groundValue = Mathf.Clamp01(groundValue);
 
         float amplitude = 1;
         float frequency = 1;
         float noiseHeight = 0;
 
-        for (int i = 0; i < octaves; i++)
+        for (int i = 0; i < prop.octaves; i++)
         {
-            float sampleX = (position.x - halfWidth) / scale * frequency + octaveOffsets[i].x;
-            float sampleY = (position.y - halfHeight) / scale * frequency + octaveOffsets[i].y;
+            float sampleX = (x - halfWidth) / prop.noiseScale * frequency + octaveOffsets[i].x;
+            float sampleY = (y - halfHeight) / prop.noiseScale * frequency + octaveOffsets[i].y;
 
             float perlinValue = Mathf.PerlinNoise(sampleX, sampleY) * 2 - .5f;
             noiseHeight += perlinValue * amplitude;
 
-            amplitude *= persistance;
-            frequency *= lacunarity;
+            amplitude *= prop.persistance;
+            frequency *= prop.lacunarity;
         }
 
         value = noiseHeight;
 
-        if (addOcean) value -= oceanValue;
-        if (addGround) value += groundValue;
+        value -= oceanValue;
+        value += groundValue;
 
         value = Mathf.Clamp01(value);
 
-        if (position.y == 0)
+        if (y == 0)
             value = 1;
-        else if (position.y == gridSize.y - 1)
+        else if (y == prop.mapHeight - 1)
             value = 0;
-        else if (value <= threshold)
+        else if (value <= prop.threshold)
             value = 0;
 
         return value;

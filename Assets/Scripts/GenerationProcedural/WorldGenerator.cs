@@ -54,12 +54,6 @@ public class WorldGenerator : MonoBehaviour
         return noiseMap;
     }
 
-    public float GenerateRandomAtPosition(Vector2 position)
-    {
-        float value = Noise.GenerateNoiseAtLocation(new Vector2Int(mapWidth, mapHeight), position, seed, noiseScale, octaves, persistance, lacunarity, threshold, offset, addOcean, oceanStep, addGround, groundStep);
-        return value;
-    }
-
     void OnValidate()
     {
         if (mapWidth < 1)
